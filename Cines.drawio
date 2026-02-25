@@ -1,64 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mxfile host="app.diagrams.net">
-  <diagram name="ER-CINE">
-    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1200">
+  <diagram name="CINE-ER">
+    <mxGraphModel dx="1600" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1800" pageHeight="1200">
       <root>
         <mxCell id="0"/>
         <mxCell id="1" parent="0"/>
 
-        <!-- ENTIDADES -->
-        
-        <!-- CINE -->
-        <mxCell id="CINE" value="CINE&#xa;----------------&#xa;id (PK)&#xa;nombre&#xa;direccion&#xa;ciudad" style="shape=rectangle;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="40" y="40" width="180" height="140" as="geometry"/>
-        </mxCell>
-
-        <!-- SALA -->
-        <mxCell id="SALA" value="SALA&#xa;----------------&#xa;id (PK)&#xa;nombre&#xa;capacidad&#xa;cine_id (FK)" style="shape=rectangle;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="300" y="40" width="200" height="160" as="geometry"/>
-        </mxCell>
-
-        <!-- CARTELERA -->
-        <mxCell id="CARTELERA" value="CARTELERA&#xa;----------------&#xa;id (PK)&#xa;fecha&#xa;sala_id (FK)" style="shape=rectangle;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="600" y="40" width="200" height="140" as="geometry"/>
-        </mxCell>
-
-        <!-- FUNCION -->
-        <mxCell id="FUNCION" value="FUNCION&#xa;----------------&#xa;id (PK)&#xa;hora&#xa;cartelera_id (FK)&#xa;pelicula_id (FK)" style="shape=rectangle;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="900" y="40" width="220" height="160" as="geometry"/>
-        </mxCell>
+        <!-- ================= ENTIDADES ================= -->
 
         <!-- PELICULA -->
-        <mxCell id="PELICULA" value="PELICULA&#xa;----------------&#xa;id (PK)&#xa;titulo&#xa;generos_id (FK)&#xa;idioma_id (FK)&#xa;clasificacion_edad_id (FK)" style="shape=rectangle;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="900" y="300" width="260" height="200" as="geometry"/>
+        <mxCell id="PELICULA" value="PELICULA&#xa;--------------------&#xa;id_pelicula (PK)&#xa;titulo_distribucion&#xa;titulo_original&#xa;genero&#xa;idioma_original&#xa;subtitulos_espanol&#xa;anio_produccion&#xa;duracion_minutos&#xa;clasificacion_edad&#xa;fecha_estreno&#xa;resumen" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#1e1e1e;fontColor=#ffffff;strokeColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="100" y="150" width="300" height="340" as="geometry"/>
+        </mxCell>
+
+        <!-- PAIS -->
+        <mxCell id="PAIS" value="PAIS&#xa;--------------------&#xa;id_pais (PK)&#xa;nombre" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#1e1e1e;fontColor=#ffffff;strokeColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="50" y="520" width="180" height="100" as="geometry"/>
         </mxCell>
 
         <!-- PERSONA -->
-        <mxCell id="PERSONA" value="PERSONA&#xa;----------------&#xa;id (PK)&#xa;nombre&#xa;apellido&#xa;edad&#xa;rol_id (FK)" style="shape=rectangle;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="40" y="300" width="220" height="180" as="geometry"/>
+        <mxCell id="PERSONA" value="PERSONA&#xa;--------------------&#xa;id_persona (PK)&#xa;nombre (UNIQUE)&#xa;nacionalidad" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#1e1e1e;fontColor=#ffffff;strokeColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="500" y="200" width="220" height="140" as="geometry"/>
         </mxCell>
 
-        <!-- RELACIONES (conectores principales) -->
-
-        <mxCell id="rel1" style="endArrow=ERmany;startArrow=ERone;" edge="1" parent="1" source="CINE" target="SALA">
-          <mxGeometry relative="1" as="geometry"/>
+        <!-- PERSONA_PELICULA_ROL -->
+        <mxCell id="PPR" value="PERSONA_PELICULA_ROL&#xa;--------------------&#xa;id_pelicula (FK)&#xa;id_persona (FK)&#xa;rol" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#1e1e1e;fontColor=#ffffff;strokeColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="320" y="520" width="260" height="120" as="geometry"/>
         </mxCell>
 
-        <mxCell id="rel2" style="endArrow=ERmany;startArrow=ERone;" edge="1" parent="1" source="SALA" target="CARTELERA">
-          <mxGeometry relative="1" as="geometry"/>
+        <!-- PERSONA_PERSONAJE -->
+        <mxCell id="PPJ" value="PERSONA_PERSONAJE&#xa;--------------------&#xa;id_pelicula (FK)&#xa;id_persona (FK)&#xa;personaje" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#1e1e1e;fontColor=#ffffff;strokeColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="650" y="520" width="260" height="120" as="geometry"/>
         </mxCell>
 
-        <mxCell id="rel3" style="endArrow=ERmany;startArrow=ERone;" edge="1" parent="1" source="CARTELERA" target="FUNCION">
-          <mxGeometry relative="1" as="geometry"/>
+        <!-- CINE -->
+        <mxCell id="CINE" value="CINE&#xa;--------------------&#xa;id_cine (PK)&#xa;nombre (UNIQUE)&#xa;direccion&#xa;telefono" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#1e1e1e;fontColor=#ffffff;strokeColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="900" y="80" width="220" height="140" as="geometry"/>
         </mxCell>
 
-        <mxCell id="rel4" style="endArrow=ERmany;startArrow=ERone;" edge="1" parent="1" source="FUNCION" target="PELICULA">
-          <mxGeometry relative="1" as="geometry"/>
+        <!-- SALA -->
+        <mxCell id="SALA" value="SALA&#xa;--------------------&#xa;id_sala (PK)&#xa;id_cine (FK)&#xa;numero_en_cine&#xa;nombre&#xa;cantidad_butacas" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#1e1e1e;fontColor=#ffffff;strokeColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="900" y="260" width="240" height="180" as="geometry"/>
         </mxCell>
 
-        <mxCell id="rel5" style="endArrow=ERmany;startArrow=ERone;" edge="1" parent="1" source="PERSONA" target="PELICULA">
-          <mxGeometry relative="1" as="geometry"/>
+        <!-- FUNCION -->
+        <mxCell id="FUNCION" value="FUNCION&#xa;--------------------&#xa;id_funcion (PK)&#xa;id_sala (FK)&#xa;id_pelicula (FK)&#xa;dia_semana&#xa;hora_comienzo&#xa;semana_inicio" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#1e1e1e;fontColor=#ffffff;strokeColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="900" y="480" width="260" height="200" as="geometry"/>
         </mxCell>
+
+        <!-- PROMOCION -->
+        <mxCell id="PROMOCION" value="PROMOCION&#xa;--------------------&#xa;id_promocion (PK)&#xa;descripcion&#xa;descuento" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#1e1e1e;fontColor=#ffffff;strokeColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="900" y="720" width="220" height="120" as="geometry"/>
+        </mxCell>
+
+        <!-- FUNCION_PROMOCION -->
+        <mxCell id="FP" value="FUNCION_PROMOCION&#xa;--------------------&#xa;id_funcion (FK)&#xa;id_promocion (FK)" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#1e1e1e;fontColor=#ffffff;strokeColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="120" width="240" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- OPINION -->
+        <mxCell id="OPINION" value="OPINION&#xa;--------------------&#xa;id_opinion (PK)&#xa;id_funcion (FK)&#xa;id_persona (FK)&#xa;edad&#xa;fecha_opinion&#xa;calificacion&#xa;comentario" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#1e1e1e;fontColor=#ffffff;strokeColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="520" width="260" height="220" as="geometry"/>
+        </mxCell>
+
+        <!-- ================= RELACIONES ================= -->
+
+        <mxCell id="r1" style="endArrow=ERmany;startArrow=ERone;strokeColor=#ffffff;" edge="1" parent="1" source="CINE" target="SALA"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="r2" style="endArrow=ERmany;startArrow=ERone;strokeColor=#ffffff;" edge="1" parent="1" source="SALA" target="FUNCION"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="r3" style="endArrow=ERmany;startArrow=ERone;strokeColor=#ffffff;" edge="1" parent="1" source="PELICULA" target="FUNCION"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="r4" style="endArrow=ERmany;startArrow=ERone;strokeColor=#ffffff;" edge="1" parent="1" source="FUNCION" target="OPINION"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="r5" style="endArrow=ERmany;startArrow=ERone;strokeColor=#ffffff;" edge="1" parent="1" source="PERSONA" target="OPINION"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="r6" style="endArrow=ERmany;startArrow=ERone;strokeColor=#ffffff;" edge="1" parent="1" source="PELICULA" target="PPR"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="r7" style="endArrow=ERmany;startArrow=ERone;strokeColor=#ffffff;" edge="1" parent="1" source="PERSONA" target="PPR"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="r8" style="endArrow=ERmany;startArrow=ERone;strokeColor=#ffffff;" edge="1" parent="1" source="PELICULA" target="PPJ"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="r9" style="endArrow=ERmany;startArrow=ERone;strokeColor=#ffffff;" edge="1" parent="1" source="PERSONA" target="PPJ"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="r10" style="endArrow=ERmany;startArrow=ERone;strokeColor=#ffffff;" edge="1" parent="1" source="FUNCION" target="FP"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="r11" style="endArrow=ERmany;startArrow=ERone;strokeColor=#ffffff;" edge="1" parent="1" source="PROMOCION" target="FP"><mxGeometry relative="1" as="geometry"/></mxCell>
 
       </root>
     </mxGraphModel>
