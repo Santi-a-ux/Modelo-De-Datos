@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="bT0mE8ChH36PaU36Ph0p">
+    <mxGraphModel dx="896" dy="400" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" parent="1"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="2" value="CINE" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="80" height="30"/>
+        </mxCell>
+        <mxCell id="3" value="SALA\nPK: sala_id" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="100" width="80" height="50"/>
+        </mxCell>
+        <mxCell id="4" value="FUNCION\nPK: funcion_id\nFK: sala_id, pelicula_id" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="180" width="80" height="60"/>
+        </mxCell>
+        <mxCell id="5" value="PELICULA\nPK: pelicula_id" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="40" width="80" height="30"/>
+        </mxCell>
+        <mxCell id="6" value="PAIS\nPK: pais_id" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="100" width="80" height="30"/>
+        </mxCell>
+        <mxCell id="7" value="PELICULA_PAIS\nPK: pelicula_id, pais_id" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="160" width="80" height="30"/>
+        </mxCell>
+        <mxCell id="8" value="PERSONA\nPK: persona_id" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="40" width="80" height="30"/>
+        </mxCell>
+        <mxCell id="9" value="PERSONA_PELICULA_ROL\nPK: persona_id, pelicula_id\nRoles: DIRECTOR, ACTOR" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="100" width="100" height="50"/>
+        </mxCell>
+        <mxCell id="10" value="PERSONA_PERSONAJE\nPK: persona_id, personaje_id" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="180" width="120" height="50"/>
+        </mxCell>
+        <mxCell id="11" value="OPINION\nPK: opinion_id\nFK: funcion_id" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="40" width="80" height="50"/>
+        </mxCell>
+        <mxCell id="12" value="PROMOCION\nPK: promocion_id" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="100" width="80" height="30"/>
+        </mxCell>
+        <mxCell id="13" value="FUNCION_PROMOCION\nPK: funcion_id, promocion_id" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="160" width="120" height="50"/>
+        </mxCell>
+        <mxCell id="14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=0;exitX=0.5;exitY=1;entryX=0.5;entryY=0;exitPerimeter=0;entryPerimeter=0;" edge="1" parent="1" source="2" target="3">
+          <mxGeometry relative="1"/> 
+        </mxCell>
+        <mxCell id="15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=0;exitX=0.5;exitY=1;entryX=0.5;entryY=0;exitPerimeter=0;entryPerimeter=0;" edge="1" parent="1" source="3" target="4">
+          <mxGeometry relative="1"/> 
+        </mxCell>
+        <mxCell id="16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=0;exitX=0.5;exitY=1;entryX=0.5;entryY=0;exitPerimeter=0;entryPerimeter=0;" edge="1" parent="1" source="5" target="4">
+          <mxGeometry relative="1"/> 
+        </mxCell>
+        <mxCell id="17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=0;exitX=0.5;exitY=1;entryX=0.5;entryY=0;exitPerimeter=0;entryPerimeter=0;" edge="1" parent="1" source="5" target="7">
+          <mxGeometry relative="1"/> 
+        </mxCell>
+        <mxCell id="18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=0;exitX=0.5;exitY=1;entryX=0.5;entryY=0;exitPerimeter=0;entryPerimeter=0;" edge="1" parent="1" source="4" target="11">
+          <mxGeometry relative="1"/> 
+        </mxCell>
+        <mxCell id="19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=0;exitX=0.5;exitY=1;entryX=0.5;entryY=0;exitPerimeter=0;entryPerimeter=0;" edge="1" parent="1" source="5" target="9">
+          <mxGeometry relative="1"/> 
+        </mxCell>
+        <mxCell id="20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=0;exitX=0.5;exitY=1;entryX=0.5;entryY=0;exitPerimeter=0;entryPerimeter=0;" edge="1" parent="1" source="5" target="10">
+          <mxGeometry relative="1"/> 
+        </mxCell>
+        <mxCell id="21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=0;exitX=0.5;exitY=1;entryX=0.5;entryY=0;exitPerimeter=0;entryPerimeter=0;" edge="1" parent="1" source="11" target="13">
+          <mxGeometry relative="1"/> 
+        </mxCell>
+        <mxCell id="22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=0;exitX=0.5;exitY=1;entryX=0.5;entryY=0;exitPerimeter=0;entryPerimeter=0;" edge="1" parent="1" source="5" target="8">
+          <mxGeometry relative="1"/> 
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
